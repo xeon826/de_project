@@ -40,7 +40,7 @@ services:
       test: [ "CMD", "pg_isready", "-U", "airflow" ]
       interval: 5s
       retries: 5
-    restart: always
+    restart: no
     ports:
       - "5432:5432"
 
@@ -61,7 +61,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 5
-    restart: always
+    restart: no
 
   airflow-scheduler:
     <<: *airflow-common
@@ -76,7 +76,7 @@ services:
       interval: 10s
       timeout: 10s
       retries: 5
-    restart: always
+    restart: no
 
   airflow-init:
     <<: *airflow-common
